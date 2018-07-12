@@ -73,7 +73,10 @@ def preprocess_train(data, size_index):
         boxes[:, 1::2] *= float(h) / im.shape[0]
         im = cv2.resize(im, (w, h))
     im = cv2.cvtColor(im, cv2.COLOR_BGR2RGB)
-    im = imcv2_recolor(im)
+    im = im.astype(np.float64)
+    im -= 128
+    im /= 128
+    # im = imcv2_recolor(im)
     # im /= 255.
 
     # im = imcv2_recolor(im)
@@ -98,7 +101,9 @@ def preprocess_test(data, size_index):
         w, h = inp_size
         im = cv2.resize(im, (w, h))
     im = cv2.cvtColor(im, cv2.COLOR_BGR2RGB)
-    im = im / 255.
+    im = im.astype(np.float64)
+    im -= 128
+    im /= 128.
 
     return im, [], [], [], ori_im
 
