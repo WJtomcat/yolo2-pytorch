@@ -13,7 +13,7 @@ import cfgs.config as cfg
 
 
 parser = argparse.ArgumentParser(description='PyTorch Yolo')
-parser.add_argument('--image_size_index', type=int, default=0,
+parser.add_argument('--image_size_index', type=int, default=4,
                     metavar='image_size_index',
                     help='setting images size index 0:320, 1:352, 2:384, 3:416, 4:448, 5:480, 6:512, 7:544, 8:576')
 args = parser.parse_args()
@@ -24,7 +24,7 @@ args = parser.parse_args()
 imdb_name = cfg.imdb_test
 # trained_model = cfg.trained_model
 trained_model = os.path.join(cfg.train_output_dir,
-                             'darknet19_voc07trainval_exp3_73.h5')
+                             'darknet19_voc07trainval_exp3_158.h5')
 output_dir = cfg.test_output_dir
 
 max_per_image = 300
